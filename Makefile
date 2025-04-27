@@ -18,3 +18,5 @@ pull:
 
 remote:
 	git remote -v
+
+# Obs: make push m="mensagem"
