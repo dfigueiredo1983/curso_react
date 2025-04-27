@@ -2,7 +2,7 @@ import './styles/global.css';
 import './styles/themes.css';
 
 import { Container } from './componentes/Container/';
-import { Heading } from './componentes/Heading';
+import { Heading } from './componentes/Heading/index.tsx';
 
 export function App() {
   return (
