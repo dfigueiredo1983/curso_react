@@ -1,0 +1,2 @@
+lucide.dev - para inserir ícones no projeto
+npm install lucide-react
