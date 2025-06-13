@@ -2,25 +2,42 @@ import './styles/global.css';
 import './styles/themes.css';
 
 import { Container } from './componentes/Container/';
-import { Heading } from './componentes/Heading/index.tsx';
+import { Logo } from './componentes/Logo';
+import { Menu } from './componentes/Menu';
+import { CountDown } from './componentes/CountDown';
 
 export function App() {
   return (
     <>
       <Container>
-        <Heading>LOGO</Heading>
+        <Logo />
       </Container>
       <Container>
-        <Heading>MENU</Heading>
+        <Menu />
       </Container>
       <Container>
-        <Heading>FORMULÁRIO</Heading>
+        <CountDown />
       </Container>
       <Container>
-        <Heading>TEXTO</Heading>
-      </Container>
-      <Container>
-        <Heading>FOOTER</Heading>
+        <form className='form' action=''>
+          <div className='formRow'>
+            <label htmlFor='meuImput'>task</label>
+            <input id='meuInput' type='text' />
+          </div>
+
+          <div className='formRow'>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum</p>
+          </div>
+
+          <div className='formRow'>
+            <p>Ciclos</p>
+            <p>0 0 0 0 0 0 0</p>
+          </div>
+
+          <div className='formRow'>
+            <button>Enviar</button>
+          </div>
+        </form>
       </Container>
     </>
   );
