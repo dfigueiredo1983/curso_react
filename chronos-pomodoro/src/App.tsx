@@ -12,26 +12,10 @@ import { PlayCircleIcon } from 'lucide-react';
 import { Footer } from './componentes/Footer';
 
 export function App() {
-  // // const [numero, setNumero] = useState(0);
-
-  // // Lazy initiation - Inicialização preguiçosa
-  // const [numero, setNumero] = useState(() => {
-  //   console.log('Lazy initialization');
-  //   return 0;
-  // });
-
-  // function handleClick() {
-  //   setNumero(numero + 1);
-  //   // setNumero(prevState => prevState + 1);
-  // }
+  const numero = 0;
 
   return (
     <>
-      {/* <Heading>
-        Número:<span id='numero'>{numero}</span>
-      </Heading>
-      <button onClick={handleClick}>Aumenta</button> */}
-
       <Container>
         <Logo />
       </Container>
