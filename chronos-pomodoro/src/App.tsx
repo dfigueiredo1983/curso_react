@@ -8,21 +8,21 @@ import { CountDown } from './componentes/CountDown';
 import { DefaultInput } from './componentes/DefaultInput';
 import { Cycles } from './componentes/Cycles';
 import { DefaultButton } from './componentes/DefaultButton';
-import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
+import { PlayCircleIcon } from 'lucide-react';
 import { Footer } from './componentes/Footer';
-import { Heading } from './componentes/Heading';
 
 export function App() {
-  // let numero = 2;
+  // // const [numero, setNumero] = useState(0);
+
+  // // Lazy initiation - Inicialização preguiçosa
+  // const [numero, setNumero] = useState(() => {
+  //   console.log('Lazy initialization');
+  //   return 0;
+  // });
 
   // function handleClick() {
-  //   const span = document.getElementById('numero');
-
-  //   if (!span) return;
-
-  //   numero += 1;
-  //   span.innerText = numero.toString();
-  //   console.log(numero, Date.now());
+  //   setNumero(numero + 1);
+  //   // setNumero(prevState => prevState + 1);
   // }
 
   return (
