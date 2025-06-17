@@ -7,9 +7,33 @@ import { DefaultButton } from '../DefaultButton';
 import { PlayCircleIcon } from 'lucide-react';
 import { HomeProps } from '../../pages/Home';
 
-export function MainForm({ state }: HomeProps) {
+export function MainForm({ state, setState }: HomeProps) {
+  function handleClick() {
+    setState(prevState => {
+      return {
+        ...prevState,
+        formattedSecondsRemaining: '23:34',
+        config: {
+          ...prevState.config,
+          workTime: 34,
+        },
+      };
+    });
+  }
+  // setState(prevState => {
+  //   ...prevState,
+  //   // config: {
+  //   //   ...prevState.config,
+  //   //   workTime: 34,
+  //   // }
+
   return (
     <form className='form' action=''>
+      <div>
+        <button type='button' onClick={handleClick}>
+          Clicar MainForm
+        </button>
+      </div>
       <div className='formRow'>
         <DefaultInput
           labelText='task'
