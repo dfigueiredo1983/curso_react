@@ -1,37 +1,29 @@
-// import styles from './styles.module.css';
-
-import { DefaultInput } from '../DefaultInput';
 import { Cycles } from '../Cycles';
-import { DefaultButton } from '../DefaultButton';
-
 import { PlayCircleIcon } from 'lucide-react';
-import { useTaskContext } from '../../contexts/TaskContext';
+import { DefaultInput } from '../DefaultInput';
+import { DefaultButton } from '../DefaultButton';
+import { useState } from 'react';
 
 export function MainForm() {
-  const { setState } = useTaskContext();
+  const [taskName, setTaskName] = useState('');
 
-  function handleClick() {
-    setState(prevState => {
-      return {
-        ...prevState,
-        formattedSecondsRemaining: '21:00',
-      };
-    });
+  function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    console.log('Deu certo', taskName);
   }
 
   return (
-    <form className='form' action=''>
-      <div>
-        <button onClick={handleClick} type='button'>
-          Clicar
-        </button>
-      </div>
+    // controlar o evento de submit do formulário
+    <form onSubmit={handleCreateNewTask} className='form' action=''>
       <div className='formRow'>
         <DefaultInput
           labelText='task'
           id='meuInput'
           type='text'
           placeholder='Digite algo'
+          value={taskName}
+          // onChange={e => {console.log('Event: ', e.target.value);}}
+          onChange={e => setTaskName(e.target.value)}
         />
       </div>
       <div className='formRow'>
