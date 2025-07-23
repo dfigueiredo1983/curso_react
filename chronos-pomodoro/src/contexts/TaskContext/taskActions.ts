@@ -15,19 +15,18 @@ export enum TaskActionTypes {
 }
 
 // Objeto
-export type TaskActionsWithPayload =
+export type TaskActionsWithPayload = {
+  type: TaskActionTypes.START_TASK;
+  payload: TaskModel;
+};
+
+export type TaskActionsWithoutPayload =
   | {
-      type: TaskActionTypes.START_TASK;
-      payload: TaskModel;
+      type: TaskActionTypes.RESET_STATE;
     }
   | {
       type: TaskActionTypes.INTERRUPT_TASK;
-      payload: TaskModel;
     };
-
-export type TaskActionsWithoutPayload = {
-  type: TaskActionTypes.RESET_STATE;
-};
 
 export type TaskActionsModel =
   | TaskActionsWithPayload
