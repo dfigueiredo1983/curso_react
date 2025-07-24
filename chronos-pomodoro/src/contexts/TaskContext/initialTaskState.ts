@@ -7,8 +7,11 @@ export const initialTaskState: TaskStateModel = {
   activeTask: null, // CountDown, Histórico, MainForm, BUtton
   currentCycle: 0, // Home
   config: {
-    workTime: 25, // MainForm
-    shortBreakTime: 5, // MainFOrm
-    longBreakTime: 15, // Mainform
+    workTime: 1, // MainForm
+    shortBreakTime: 1, // MainFOrm
+    longBreakTime: 1, // Mainform
+    // workTime: 25, // MainForm
+    // shortBreakTime: 5, // MainFOrm
+    // longBreakTime: 15, // Mainform
   },
 };

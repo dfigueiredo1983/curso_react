@@ -6,19 +6,28 @@
 // payload <- os dados extras enviados junto com a action, se necessário para atualizar o estado
 
 import { TaskModel } from '../../models/TaskModels';
+import { TaskStateModel } from '../../models/TaskStateModel';
 
 // enum
 export enum TaskActionTypes {
   START_TASK = 'START_TASK',
   INTERRUPT_TASK = 'INTERRUPT_TASK',
   RESET_STATE = 'RESET_STATE',
+  COUNT_DOWN = 'COUNT_DOWN',
+  COMPLETE_TASK = 'COMPLETE_TASK',
 }
 
 // Objeto
-export type TaskActionsWithPayload = {
-  type: TaskActionTypes.START_TASK;
-  payload: TaskModel;
-};
+export type TaskActionsWithPayload =
+  | {
+      type: TaskActionTypes.START_TASK;
+      payload: TaskModel;
+    }
+  | {
+      type: TaskActionTypes.COUNT_DOWN;
+      // payload: Pick<TaskStateModel, 'secondsRemaining'>; // posso pegar essa chave desse objeto
+      payload: { secondsRemaining: number }; // pyaload retorna um objeto do JS
+    };
 
 export type TaskActionsWithoutPayload =
   | {
@@ -26,6 +35,9 @@ export type TaskActionsWithoutPayload =
     }
   | {
       type: TaskActionTypes.INTERRUPT_TASK;
+    }
+  | {
+      type: TaskActionTypes.COMPLETE_TASK;
     };
 
 export type TaskActionsModel =
