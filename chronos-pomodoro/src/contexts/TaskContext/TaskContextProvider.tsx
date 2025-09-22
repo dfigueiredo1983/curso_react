@@ -5,14 +5,27 @@ import { initialTaskState } from './initialTaskState';
 import { TimerWorkerManager } from '../../workers/TimerWorkerManager';
 import { TaskActionTypes } from './taskActions';
 import { loadBeep } from '../../utils/loadBip';
-import { ConciergeBellIcon } from 'lucide-react';
+import { TaskStateModel } from '../../models/TaskStateModel';
 
 type TaskContextProviderProps = {
   children: React.ReactNode;
 };
 
 export function TaskContextProvider({ children }: TaskContextProviderProps) {
-  const [state, dispatch] = useReducer(taskReducer, initialTaskState);
+  const [state, dispatch] = useReducer(taskReducer, initialTaskState, () => {
+    const storageState = localStorage.getItem('state');
+
+    if (storageState === null) return initialTaskState;
+
+    const parsedStorageState = JSON.parse(storageState) as TaskStateModel;
+
+    return {
+      ...parsedStorageState,
+      activeTask: null,
+      secondsRemaining: 0,
+      formattedSecondsRemaining: '00:00',
+    };
+  });
   // let playBeep = loadBeep();
   // useRef<() => void | null> - Tipo de retorno
   // const playBeepRef = useRef<() => void | null>(null);
@@ -48,10 +61,15 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
   // dentro de [worker, state]
   // o useEffect fica monitorando quando elas são alteradas
   useEffect(() => {
+    // o estado da aplicação mudou então salvar no localStorage
+    localStorage.setItem('state', JSON.stringify(state));
+
     if (!state.activeTask) {
       console.log('Worker terminado por falta de activeTask');
       worker.terminate();
     }
+
+    document.title = `${state.formattedSecondsRemaining} - Chronos Pomodoro`;
 
     worker.postMessage(state);
   }, [worker, state]);

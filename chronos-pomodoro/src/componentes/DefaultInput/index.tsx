@@ -17,7 +17,9 @@ export function DefaultInput({
       {/* {labelText ? 'Verdadeiro' : 'Falso '} */}
       {/* <label htmlFor={id}>{labelText}</label> */}
       {/* {labelText ? <label htmlFor='{id}'>{labelText}</label> : ''} */}
-      {labelText && <label htmlFor='{id}'>{labelText}</label>}
+      {/* {labelText && <label htmlFor='{id}'>{labelText}</label>} */}
+
+      <label htmlFor={id}>{labelText}</label>
       <input className={styles.input} id={id} type={type} {...rest} />
     </>
   );

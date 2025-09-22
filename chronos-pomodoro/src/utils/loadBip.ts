@@ -6,6 +6,9 @@ export function loadBeep() {
 
   return () => {
     audio.currentTime = 0;
-    audio.play().catch(error => console.log('Erro ao tocar áudio', error));
+    audio
+      .play()
+      .then(() => console.log('Áudio tocou corretamente'))
+      .catch(error => console.log('Erro ao tocar áudio', error));
   };
 }
