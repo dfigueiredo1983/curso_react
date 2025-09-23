@@ -5,7 +5,15 @@ import { GenericHtml } from '../../componentes/GenericHtml';
 import { Heading } from '../../componentes/Heading';
 import { RouterLink } from '../../componentes/RouterLink';
 
+import { useEffect } from 'react';
+
 export function NotFound() {
+  // [] - array de dependências vazio, então roda apenas na montagem e
+  // desmontagem do componente
+  useEffect(() => {
+    document.title = 'Not Found - Chronos Pomodoro';
+  }, []);
+
   return (
     <MainTemplate>
       <Container>

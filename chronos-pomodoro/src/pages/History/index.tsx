@@ -28,6 +28,12 @@ export function History() {
     },
   );
 
+  // [] - array de dependências vazio, então roda apenas na montagem e
+  // desmontagem do componente
+  useEffect(() => {
+    document.title = 'Histórico - Chronos Pomodoro';
+  });
+
   useEffect(() => {
     setSortTaskOptions(prevState => ({
       ...prevState,
@@ -46,7 +52,7 @@ export function History() {
     setConfirmClearHistory(false);
 
     dispatch({ type: TaskActionTypes.RESET_STATE });
-  }, [confirmClearHistory]);
+  }, [confirmClearHistory, dispatch]);
 
   // Exeuta sempre que o componente for renderizado, pois tem
   // o array de dependências vazio

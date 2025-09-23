@@ -15,6 +15,7 @@ export enum TaskActionTypes {
   RESET_STATE = 'RESET_STATE',
   COUNT_DOWN = 'COUNT_DOWN',
   COMPLETE_TASK = 'COMPLETE_TASK',
+  CHANGE_SETTINGS = 'CHANGE_SETTINGS',
 }
 
 // Objeto
@@ -27,6 +28,17 @@ export type TaskActionsWithPayload =
       type: TaskActionTypes.COUNT_DOWN;
       // payload: Pick<TaskStateModel, 'secondsRemaining'>; // posso pegar essa chave desse objeto
       payload: { secondsRemaining: number }; // pyaload retorna um objeto do JS
+    }
+  | {
+      type: TaskActionTypes.CHANGE_SETTINGS;
+      // payload: Pick<TaskStateModel, 'secondsRemaining'>; // posso pegar essa chave desse objeto
+      payload: TaskStateModel['config']; // pyaload retorna um objeto do JS
+      // Objeto que vai ser recebido no payload
+      // config: {
+      //   workTime: number;
+      //   shortBreakTime: number;
+      //   longBreakTime: number;
+      // }
     };
 
 export type TaskActionsWithoutPayload =

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Container } from '../../componentes/Container';
 import { GenericHtml } from '../../componentes/GenericHtml';
 import { Heading } from '../../componentes/Heading';
@@ -5,6 +6,12 @@ import { RouterLink } from '../../componentes/RouterLink';
 import { MainTemplate } from '../../templates/MainTemplate';
 
 export function AboutPomodoro() {
+  // [] - array de dependências vazio, então roda apenas na montagem e
+  // desmontagem do componente
+  useEffect(() => {
+    document.title = 'Entenda a Técnica Pomodoro 🍅 - Chronos Pomodoro';
+  }, []);
+
   return (
     <MainTemplate>
       <Container>
